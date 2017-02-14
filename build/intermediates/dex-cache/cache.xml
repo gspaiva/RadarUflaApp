@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.0_c5168f39c0b49377c748e700f5f1c94b7f0b6a5c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_cab29ba7cc49e4b6aa9755869445fb9a6438eb32/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.1.0_2b762705f30ca9d9dc7368b2b0bafaeb4575995d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.0_6e9830eac31b5fe56b51b5749c55c6d6202cb2ff/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.1.0_15ae799c5eea8e3b7f7e541354c07edaa1f31a08/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e84759e55a3cace3850328f75883f4b778e7cb7a">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_a47acda6b2339a34cf8f49afb3ba3d4e4cc4c7a9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.0_90aa74cc5c7a89857253f0d6919b300f62900a9e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="72704d36524dc9d4cf9028607489092931c620dd">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_31c53886fc32ca023b2516f02c3ca565870c44b4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.11.0_4eb69a4a8b964cd3ab43373d29e85d68879c0f56/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.0_55ea5d737611050da86be1b47ce0376c9b21cf34/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.0_60c024d9923776ffa27f19507bcdda4211f7f630/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_70cdab850f4bfcb3e05e111e1d42e18b05d9b677/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_c9e5ed31ec8be064391be7d66bfdb50a63542dc7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.0_fa67ed0d26a4ddd1a5aa7d3c1c4835117ab78056/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.1.0_43489aef0043c6c3b05d0721769643e2eb1f89fa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.0_06983777b711afc36f9133c789ffc80b5e660938/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/gabriel/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.6.0_31a6872b5ef5519015b7ce41411b02bbe9796029/classes.dex" />
+    </item>
+
+</items>
