@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         instaciarObjetosView();
 
         final LoginModel user = new LoginModel();
-        this.progressDialog = new ProgressDialog(getBaseContext());
         this.botaoLogin.setOnClickListener(  new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +77,16 @@ public class LoginActivity extends AppCompatActivity {
 
     /*classe privada da classe activity que é responsável por criar uma thread para trabalhar com a requisição post no caso*/
     private class LoginTask extends AsyncTask<TaskParametros,Integer,LoginResponse>{
+
+
+        protected void onPreExecute(){
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog.setMessage("Carregando");
+            progressDialog.show();
+        }
+
+
         /*Nesse métódo que acontece o trabalho pesado, é onde se cria uma nova thread diferente da UI thread
         * Após o termíno do processo o mesmo retorna para o parametro do método onPostExecute
         * No nosso caso o doInBackground irá realizar a requisição post para o servidor
@@ -86,6 +95,8 @@ public class LoginActivity extends AppCompatActivity {
 
             LoginClient loginClient = new LoginClient();
             LoginResponse response = null;
+
+
             try {
                 response = loginClient.runPost(params[0].getUrl(),params[0].getUser());
             } catch (IOException e) {
@@ -96,8 +107,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         /*Aqui podemos implementar uma interface para o usuário acompanhar o progresso da requisição*/
         protected void onProgressUpdate(Integer... progress) {
-           progressDialog.setMessage("Logando");
-           progressDialog.show();
+
         }
         /*Aqui é onde iremos tratar o nosso resultado (JSON) e tiver que fazer o necessário*/
         protected void onPostExecute(LoginResponse response) {
