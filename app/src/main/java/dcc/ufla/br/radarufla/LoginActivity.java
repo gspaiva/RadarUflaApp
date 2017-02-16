@@ -17,6 +17,8 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import dcc.ufla.br.radarufla.httpclients.LoginClient;
 import dcc.ufla.br.radarufla.responsehttp.LoginResponse;
@@ -47,13 +49,22 @@ public class LoginActivity extends AppCompatActivity {
         this.botaoLogin.setOnClickListener(  new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(emailUfla.getText().toString().equals("") | senhaUfla.getText().toString().equals("") ){
+                    Toast.makeText(getBaseContext(),"Os campos email e são obrigatórios.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    Pattern regEx = Pattern.compile(".+@.+\\.[a-z]+");
+                    Matcher matcher = regEx.matcher(emailUfla.getText().toString());
+                    if(!matcher.matches()){
+                        Toast.makeText(getBaseContext(),"O formato do campo email é inválido.",Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+
+
                 user.setEmail(emailUfla.getText().toString());
-
-                user.setPassword(senhaUfla.getText().toString());
-
-                TaskParametros taskParametros = new TaskParametros("https://radar-ufla.herokuapp.com/login",user);
-                LoginTask task = new LoginTask();
-                task.execute(taskParametros);
                 try{
                     System.out.println(CriptografarSenha.criptograr(emailUfla.getText().toString()));
 
@@ -62,6 +73,13 @@ public class LoginActivity extends AppCompatActivity {
                 {
 
                 }
+                user.setPassword(senhaUfla.getText().toString());
+
+                TaskParametros taskParametros = new TaskParametros("https://radar-ufla.herokuapp.com/login",user);
+                LoginTask task = new LoginTask();
+                task.execute(taskParametros);
+
+
 
             }
         });
@@ -82,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPreExecute(){
             super.onPreExecute();
             progressDialog = new ProgressDialog(LoginActivity.this);
-            progressDialog.setMessage("Carregando");
+            progressDialog.setMessage("Realizando login");
             progressDialog.show();
         }
 
@@ -104,10 +122,6 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             return response;
-        }
-        /*Aqui podemos implementar uma interface para o usuário acompanhar o progresso da requisição*/
-        protected void onProgressUpdate(Integer... progress) {
-
         }
         /*Aqui é onde iremos tratar o nosso resultado (JSON) e tiver que fazer o necessário*/
         protected void onPostExecute(LoginResponse response) {
