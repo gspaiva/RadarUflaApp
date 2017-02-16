@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="05bbc79a2ffec6d09c47f5d7a2277f09efe35beb">
+        sha1="45fcc236b0d018d6d5a765ef194ed54a14c65253">
         <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_a47acda6b2339a34cf8f49afb3ba3d4e4cc4c7a9/classes.dex" />
     </item>
     <item
@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="4d627ff256e0196d3d43a959808a68bccf7fa270">
+        sha1="8cc1216e64bb12d961c4450e308c4a1d7784d1f3">
         <dex dex="/home/gabriel/AndroidStudioProjects/RadarUfla/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_31c53886fc32ca023b2516f02c3ca565870c44b4/classes.dex" />
     </item>
     <item

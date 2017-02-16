@@ -14,6 +14,8 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.net.URL;
 
+import dcc.ufla.br.radarufla.httpclients.LoginClient;
+import dcc.ufla.br.radarufla.responsehttp.LoginResponse;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -50,10 +52,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
   }
 
     public void instaciarObjetosView(){
@@ -63,18 +61,18 @@ public class LoginActivity extends AppCompatActivity {
         this.botaoLogin = (Button)findViewById(R.id.botaoLogin);
     }
 
-
-    private class LoginTask extends AsyncTask<TaskParametros,Integer,String>{
+    /*classe privada da classe activity que é responsável por criar uma thread para trabalhar com a requisição post no caso*/
+    private class LoginTask extends AsyncTask<TaskParametros,Integer,LoginResponse>{
         /*Nesse métódo que acontece o trabalho pesado, é onde se cria uma nova thread diferente da UI thread
         * Após o termíno do processo o mesmo retorna para o parametro do método onPostExecute
         * No nosso caso o doInBackground irá realizar a requisição post para o servidor
         * */
-        protected String doInBackground(TaskParametros... params) {
+        protected LoginResponse doInBackground(TaskParametros... params) {
 
-            PostLogin postLogin = new PostLogin();
-            String response = null;
+            LoginClient loginClient = new LoginClient();
+            LoginResponse response = null;
             try {
-                response = postLogin.run(params[0].getUrl(),params[0].getUser());
+                response = loginClient.runPost(params[0].getUrl(),params[0].getUser());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -86,35 +84,12 @@ public class LoginActivity extends AppCompatActivity {
 
         }
         /*Aqui é onde iremos tratar o nosso resultado (JSON) e tiver que fazer o necessário*/
-        protected void onPostExecute(String response) {
-            System.out.println(response);
+        protected void onPostExecute(LoginResponse response) {
+            if(response != null)
+                System.out.println(response.get_id());
+            else
+                System.out.println("Crendenciais erradas.");
         }
-    }
-    public class PostLogin{
-        OkHttpClient client = new OkHttpClient();
-        final MediaType JSON
-                = MediaType.parse("application/json; charset=utf-8");
 
-        String run(String url, LoginModel user) throws IOException{
-
-            Gson userJson = new Gson();
-
-            System.out.println(userJson.toJson(user));
-
-            RequestBody requestBody = RequestBody.create(JSON,userJson.toJson(user));
-
-            Request request = new Request.Builder().url(url).post(requestBody).build();
-            String result = null;
-            try{
-                Response response = client.newCall(request).execute();
-                result = response.body().string();
-            }
-            catch (IOException e){
-                e.printStackTrace();
-            }
-            return result;
-
-            /* usuario valido{ email: 'neumar@dcc.ufla.br', password: '123456' }*/
-        }
     }
 }
