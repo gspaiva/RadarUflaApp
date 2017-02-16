@@ -32,8 +32,11 @@ public class LoginClient {
         LoginResponse result = null;
         try{
             Response response = client.newCall(request).execute();
-            Gson responseGson = new Gson();
-            result = responseGson.fromJson(response.body().string(),LoginResponse.class);
+
+            if(response.code() == 200){
+                Gson responseGson = new Gson();
+                result = responseGson.fromJson(response.body().string(),LoginResponse.class);
+            }
 
         }
         catch (IOException e){
