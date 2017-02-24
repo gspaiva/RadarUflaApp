@@ -41,11 +41,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        
+
         getSupportActionBar().setTitle("Login Radar UFLA");
 
         instaciarObjetosView();
 
         final LoginModel user = new LoginModel();
+
         this.botaoLogin.setOnClickListener(  new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
   }
+
 
     public void instaciarObjetosView(){
 
