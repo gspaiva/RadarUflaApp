@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import java.util.regex.Pattern;
 
 import dcc.ufla.br.radarufla.httpclients.LoginClient;
 import dcc.ufla.br.radarufla.responsehttp.LoginResponse;
+import dcc.ufla.br.radarufla.validators.LoginValidator;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -35,13 +37,10 @@ public class LoginActivity extends AppCompatActivity {
     Button botaoLogin;
     ProgressDialog progressDialog;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        
 
         getSupportActionBar().setTitle("Login Radar UFLA");
 
@@ -53,42 +52,38 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(emailUfla.getText().toString().equals("") | senhaUfla.getText().toString().equals("") ){
-                    Toast.makeText(getBaseContext(),"Os campos email e são obrigatórios.",Toast.LENGTH_SHORT).show();
+                if(!LoginValidator.verificaCamposVazios(emailUfla.getText().toString(),senhaUfla.getText().toString())){
+                    Toast.makeText(getBaseContext(),"Os campos email e senha são obrigatórios.",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                else{
-                    Pattern regEx = Pattern.compile(".+@.+\\.[a-z]+");
-                    Matcher matcher = regEx.matcher(emailUfla.getText().toString());
-                    if(!matcher.matches()){
-                        Toast.makeText(getBaseContext(),"O formato do campo email é inválido.",Toast.LENGTH_LONG).show();
-                        return;
-                    }
+                if(!LoginValidator.verificaEmail(emailUfla.getText().toString())){
+                   emailUfla.setError("Email inválido, (example@example.com é valido).");
+                    return;
                 }
 
+                if(!LoginValidator.verificaSenha(senhaUfla.getText().toString())){
+                    senhaUfla.setError("Sua senha deve possuir no mínimo 6 caracteres.");
+                    return;
+                }
 
                 user.setEmail(emailUfla.getText().toString());
-                try{
-                    System.out.println(CriptografarSenha.criptograr(emailUfla.getText().toString()));
 
+                try{
+                    user.setPassword(CriptografarSenha.criptograr(emailUfla.getText().toString()));
                 }
                 catch ( NoSuchAlgorithmException err)
                 {
 
                 }
-                user.setPassword(senhaUfla.getText().toString());
 
                 TaskParametros taskParametros = new TaskParametros("https://radar-ufla.herokuapp.com/login",user);
                 LoginTask task = new LoginTask();
                 task.execute(taskParametros);
 
-
-
             }
         });
 
   }
-
 
     public void instaciarObjetosView(){
 
@@ -131,6 +126,8 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(LoginResponse response) {
             progressDialog.dismiss();
             if(response != null){
+
+                //temos que salvar o token
                 Intent i = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(i);
             }
