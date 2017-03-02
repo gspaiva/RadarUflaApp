@@ -2,7 +2,9 @@ package dcc.ufla.br.radarufla;
 
 import android.app.ActionBar;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +17,9 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
@@ -36,6 +41,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText senhaUfla;
     Button botaoLogin;
     ProgressDialog progressDialog;
+    private static final String PREF_NAME = "TOKEN";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +74,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 user.setEmail(emailUfla.getText().toString());
-
                 try{
-                    user.setPassword(CriptografarSenha.criptograr(emailUfla.getText().toString()));
+                    user.setPassword(CriptografarSenha.criptograr(senhaUfla.getText().toString()));
                 }
                 catch ( NoSuchAlgorithmException err)
                 {
@@ -90,6 +96,12 @@ public class LoginActivity extends AppCompatActivity {
         this.emailUfla = (EditText)findViewById(R.id.emailUfla);
         this.senhaUfla = (EditText)findViewById(R.id.senhaUfla);
         this.botaoLogin = (Button)findViewById(R.id.botaoLogin);
+    }
+    public void salvaToken(String token){
+
+        SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME,MODE_PRIVATE).edit();
+        editor.putString("token",token);
+        editor.commit();
     }
 
     /*classe privada da classe activity que é responsável por criar uma thread para trabalhar com a requisição post no caso*/
@@ -126,8 +138,7 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(LoginResponse response) {
             progressDialog.dismiss();
             if(response != null){
-
-                //temos que salvar o token
+                salvaToken(response.getToken());
                 Intent i = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(i);
             }

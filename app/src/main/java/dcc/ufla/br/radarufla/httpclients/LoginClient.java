@@ -23,8 +23,6 @@ public class LoginClient {
 
         Gson userJson = new Gson();
 
-        System.out.println(userJson.toJson(user));
-
         RequestBody requestBody = RequestBody.create(JSON,userJson.toJson(user));
 
         Request request = new Request.Builder().url(url).post(requestBody).build();
@@ -44,6 +42,5 @@ public class LoginClient {
         }
         return result;
 
-            /* usuario valido{ email: 'neumar@dcc.ufla.br', password: '123456' }*/
     }
 }
