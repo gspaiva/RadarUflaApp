@@ -26,6 +26,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import dcc.ufla.br.radarufla.auth.AuthApp;
 import dcc.ufla.br.radarufla.httpclients.LoginClient;
 import dcc.ufla.br.radarufla.responsehttp.LoginResponse;
 import dcc.ufla.br.radarufla.validators.LoginValidator;
@@ -74,6 +75,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 user.setEmail(emailUfla.getText().toString());
+
+                /*
                 try{
                     user.setPassword(CriptografarSenha.criptograr(senhaUfla.getText().toString()));
                 }
@@ -81,6 +84,8 @@ public class LoginActivity extends AppCompatActivity {
                 {
 
                 }
+                */
+                user.setPassword(senhaUfla.getText().toString());
 
                 TaskParametros taskParametros = new TaskParametros("https://radar-ufla.herokuapp.com/login",user);
                 LoginTask task = new LoginTask();
@@ -97,12 +102,7 @@ public class LoginActivity extends AppCompatActivity {
         this.senhaUfla = (EditText)findViewById(R.id.senhaUfla);
         this.botaoLogin = (Button)findViewById(R.id.botaoLogin);
     }
-    public void salvaToken(String token){
 
-        SharedPreferences.Editor editor = getSharedPreferences(PREF_NAME,MODE_PRIVATE).edit();
-        editor.putString("token",token);
-        editor.commit();
-    }
 
     /*classe privada da classe activity que é responsável por criar uma thread para trabalhar com a requisição post no caso*/
     private class LoginTask extends AsyncTask<TaskParametros,Integer,LoginResponse>{
@@ -124,8 +124,6 @@ public class LoginActivity extends AppCompatActivity {
 
             LoginClient loginClient = new LoginClient();
             LoginResponse response = null;
-
-
             try {
                 response = loginClient.runPost(params[0].getUrl(),params[0].getUser());
             } catch (IOException e) {
@@ -138,7 +136,8 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(LoginResponse response) {
             progressDialog.dismiss();
             if(response != null){
-                salvaToken(response.getToken());
+
+                AuthApp.salvaToken(LoginActivity.this,response.getToken());
                 Intent i = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(i);
             }
