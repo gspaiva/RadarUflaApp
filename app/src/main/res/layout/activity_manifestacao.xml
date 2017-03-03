@@ -18,7 +18,9 @@
         />
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/spnTipoManifestacao"
+        >
     </Spinner>
 
     <TextView
@@ -29,6 +31,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/edtAssunto"
       />
     <TextView
         android:layout_width="match_parent"
@@ -38,6 +41,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/edtDescricao"
         />
 
     <TextView
@@ -53,14 +57,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adicionar anexo"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Imagem.txt"
-            android:layout_marginLeft="10dp"
+            android:text="Adicionar anexo"
+            android:id="@+id/btnAddAnexo"
             />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgManifestacao"/>
 
 
     </LinearLayout>
@@ -70,6 +74,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enviar Manifestação"
+        android:id="@+id/btnEnviarManifestacao"
         />
+
+
 
 </LinearLayout>
