@@ -56,6 +56,9 @@ public class LoginActivity extends AppCompatActivity {
 
         final LoginModel user = new LoginModel();
 
+        emailUfla.setText("neumar@dcc.ufla.br");
+        senhaUfla.setText("123456");
+
         this.botaoLogin.setOnClickListener(  new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,8 +86,8 @@ public class LoginActivity extends AppCompatActivity {
                 catch ( NoSuchAlgorithmException err)
                 {
 
-                }
-                */
+                }*/
+
                 user.setPassword(senhaUfla.getText().toString());
 
                 TaskParametros taskParametros = new TaskParametros("https://radar-ufla.herokuapp.com/login",user);
@@ -138,6 +141,8 @@ public class LoginActivity extends AppCompatActivity {
             if(response != null){
 
                 AuthApp.salvaToken(LoginActivity.this,response.getToken());
+                AuthApp.salvaId(LoginActivity.this,response.get_id());
+
                 Intent i = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(i);
             }
