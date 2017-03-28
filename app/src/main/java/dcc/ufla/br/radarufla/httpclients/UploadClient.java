@@ -6,10 +6,8 @@ import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.IOException;
-import java.security.Timestamp;
 
 import dcc.ufla.br.radarufla.auth.AuthApp;
-import dcc.ufla.br.radarufla.responsehttp.LoginResponse;
 import dcc.ufla.br.radarufla.responsehttp.UploadResponse;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -35,7 +33,6 @@ public class UploadClient {
                 .url(url)
                 .post(requestBody)
                 .build();
-
 
         Response response = client.newCall(request).execute();
         UploadResponse uploadResponse = null;

@@ -20,7 +20,8 @@
         <activity android:name=".EditActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ManifestacaoActivity" />
-        <activity android:name=".CadastrarUsuarioActivity"></activity>
+        <activity android:name=".CadastrarUsuarioActivity" />
+        <activity android:name=".ListaManifestacoesActivity"></activity>
     </application>
 
 </manifest>

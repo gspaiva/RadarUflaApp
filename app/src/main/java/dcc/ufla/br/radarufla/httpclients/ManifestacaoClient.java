@@ -62,11 +62,16 @@ public class ManifestacaoClient {
 
         Response response = client.newCall(request).execute();
 
-        System.out.println(response.body().string());
+        if(response.code() == 200){
 
-        List<ManifestacaoResponse> manifestacoes = new Gson().fromJson(response.body().string(),listType);
+            List<ManifestacaoResponse> manifestacoes = new Gson().fromJson(response.body().string(),listType);
+            return manifestacoes;
+        }
 
-        return manifestacoes;
+
+        return null;
+
+
 
 
     }

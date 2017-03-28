@@ -177,44 +177,7 @@ public class ManifestacaoActivity extends AppCompatActivity {
             }
         }
     }
-    private class ManifestacaoTask extends AsyncTask<TaskManifestacao,Integer,List<ManifestacaoResponse>>{
-        protected void onPreExecute(){
-            super.onPreExecute();
-            progressDialog = new ProgressDialog(ManifestacaoActivity.this);
-            progressDialog.setMessage("Salvando manifestações");
-            progressDialog.show();
-        }
 
-
-        protected List<ManifestacaoResponse> doInBackground(TaskManifestacao... params) {
-
-            ManifestacaoClient manifestacaoClient = new ManifestacaoClient();
-            List<ManifestacaoResponse> response = null;
-            try {
-                response = manifestacaoClient.runGet(params[0].getUrl(), params[0].getCtx());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return response;
-        }
-        protected void onPostExecute(List<ManifestacaoResponse> manifestacaoResponses) {
-            progressDialog.dismiss();
-            if(manifestacaoResponses != null){
-
-                for(ManifestacaoResponse manifestacaoResponse : manifestacaoResponses ){
-                    System.out.println(manifestacaoResponse.getDescricao());
-                }
-
-                Intent i = new Intent(getBaseContext(), MainActivity.class);
-                startActivity(i);
-            }
-            else{
-                Toast.makeText(getBaseContext(),"Erro manifestação",Toast.LENGTH_SHORT).show();
-            }
-        }
-
-    }
     private class UploadTask extends AsyncTask<TaskUpload,Integer,UploadResponse> {
 
         protected void onPreExecute() {
@@ -226,8 +189,6 @@ public class ManifestacaoActivity extends AppCompatActivity {
             return null;
         }
         protected void onPostExecute(UploadResponse path) {
-
-
 
         }
 

@@ -27,7 +27,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Atualizar meus dados"/>
+            android:text="Atualizar meus dados"
+            android:id="@+id/btnAtualizarMeusDados"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +36,10 @@
             android:id="@+id/btnAddManifestacao"/>
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Ver Manifestações"
+            android:id="@+id/btnVerManifestacoes"
+            />
     </LinearLayout>
 
 
